@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script src="https://code.jquery.com/jquery-3.6.0.js"
+        integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <title>Document</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="mainContainer">
+        <div class="title">
+            <P>Are You Supid</P>
+
+        </div>
+        <div class="buttons">
+            <button id="yes" class="btn">YES</button>
+            <button id="no" flag="y" class="btn">NO</button>
+        </div>
+        <p class="hidden">Thats What I Thought</p>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            $('#no').hover(function () {
+                var flag = $('#no').attr('flag')
+                if (flag == 'y') {
+                    $('#no').animate({ left: '+=100px' });
+                    $('#no').attr('flag', 'n')
+                }
+                else {
+                    $('#no').animate({ left: '-=100px' });
+                    $('#no').attr('flag', 'y')
+                }
+            });
+
+            $('#yes').click(function () {
+                $('.hidden').css('display','block');
+                $('.buttons').css('display', 'none');
+            });
+        });
+
+    </script>
+</body>
+
+</html>
